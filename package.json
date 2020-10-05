@@ -44,12 +44,12 @@
     "aws-sdk": "^2.579.0",
     "chai": "^4.2.0",
     "dirty-chai": "^2.0.1",
-    "ipfs-repo": "^6.0.3",
+    "ipfs-repo": "https://github.com/straiforos/js-ipfs-repo",
     "stand-in": "^4.2.0"
   },
   "peerDependencies": {
     "aws-sdk": "2.x",
-    "ipfs-repo": "^6.0.3"
+    "ipfs-repo": "https://github.com/straiforos/js-ipfs-repo"
   },
   "contributors": [
     "Jacob Heun <jacobheun@gmail.com>",
