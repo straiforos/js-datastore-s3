@@ -70,8 +70,8 @@ class S3Datastore extends Adapter {
       }).promise()
     } catch (err) {
       if (err.code === 'NoSuchBucket' && this.createIfMissing) {
-        await this.opts.s3.createBucket({}).promise()
-        return this.put(key, Buffer.from(val, val.byteOffset, val.byteLength))
+        await this.opts.s3.createBucket({}).promise();
+        return this.put(key, val)
       }
       throw Errors.dbWriteFailedError(err)
     }
@@ -153,10 +153,6 @@ class S3Datastore extends Adapter {
     const deletes = []
     return {
       put (key, value) {
-        if(value && value instanceof Uint8Array){
-          value = Buffer.from(value, value.byteOffset, value.byteLength);
-        }
-
         puts.push({ key: key, value: value });
       },
       delete (key) {
